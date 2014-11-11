@@ -1,0 +1,8 @@
+{
+  "name": "The Shelf - AngularJS client",
+  "dependencies": {
+    "angular": "~1.3.0",
+    "angular-mocks": "^1.2.22",
+    "angular-ui-router": "^0.2.10"
+  }
+}
