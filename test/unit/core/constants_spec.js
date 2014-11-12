@@ -7,8 +7,8 @@ describe('Unit: Constants', function() {
   var constants;
 
   beforeEach(function() {
-    // instantiate the app module
-    angular.mock.module('app.core');
+    // instantiate the theshelf.core module
+    angular.mock.module('theshelf.core');
 
     // mock the directive
     angular.mock.inject(function(AppSettings) {

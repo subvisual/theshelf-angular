@@ -7,8 +7,8 @@ describe('Unit: ExampleService', function() {
   var service;
 
   beforeEach(function() {
-    // instantiate the app module
-    angular.mock.module('app.foo');
+    // instantiate the theshelf.foo module
+    angular.mock.module('theshelf.foo');
 
     // mock the service
     angular.mock.inject(function(ExampleService) {

@@ -7,8 +7,8 @@ describe('Unit: ExampleCtrl', function() {
   var ctrl;
 
   beforeEach(function() {
-    // instantiate the app module
-    angular.mock.module('app.foo');
+    // instantiate the theshelf.foo module
+    angular.mock.module('theshelf.foo');
 
     // mock the controller
     angular.mock.inject(function($controller) {
