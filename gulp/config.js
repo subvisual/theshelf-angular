@@ -21,7 +21,6 @@ module.exports = {
 
   'views': {
     'src': [
-      'app/index.html',
       'app/views/**/*.html'
     ],
     'dest': 'app/js/core'
