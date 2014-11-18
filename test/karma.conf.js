@@ -5,7 +5,7 @@ module.exports = function(config) {
   var configuration = {
 
     basePath: '../',
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
     preprocessors: {
       'app/js/**/*.js': ['browserify']
     },
@@ -13,14 +13,6 @@ module.exports = function(config) {
     reporters: ['progress'],
 
     autoWatch: true,
-
-    plugins: [
-      'karma-jasmine',
-      'karma-bro',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-phantomjs-launcher'
-    ],
 
     proxies: {
       '/': 'http://localhost:9876/'

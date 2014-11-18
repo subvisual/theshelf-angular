@@ -1,8 +1,6 @@
-/*global angular */
-
 'use strict';
 
-describe('Unit: Constants', function() {
+describe('Unit: Core Constants', function() {
 
   var constants;
 
@@ -17,11 +15,11 @@ describe('Unit: Constants', function() {
   });
 
   it('should exist', function() {
-    expect(constants).toBeDefined();
+    expect(constants).to.exist;
   });
 
   it('should have an application name', function() {
-    expect(constants.appTitle).toEqual('Example Application');
+    expect(constants.appTitle).to.equal('Example Application');
   });
 
 });

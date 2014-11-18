@@ -1,8 +1,6 @@
-/*global angular */
-
 'use strict';
 
-describe('Unit: ExampleService', function() {
+describe('Unit: Foo ExampleService', function() {
 
   var service;
 
@@ -17,7 +15,7 @@ describe('Unit: ExampleService', function() {
   });
 
   it('should exist', function() {
-    expect(service).toBeDefined();
+    expect(service).to.exist;
   });
 
 });

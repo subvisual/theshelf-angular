@@ -2,8 +2,6 @@
 
 exports.config = {
 
-  allScriptsTimeout: 11000,
-
   baseUrl: 'http://localhost:3000/',
 
   capabilities: {
@@ -12,13 +10,11 @@ exports.config = {
     platform: 'ANY'
   },
 
-  framework: 'jasmine',
+  framework: 'mocha',
 
-  jasmineNodeOpts: {
-    isVerbose: false,
-    showColors: true,
-    includeStackTrace: true,
-    defaultTimeoutInterval: 30000
+  mochaOpts: {
+    reporter: 'spec',
+    timeout: 4000
   },
 
   specs: [

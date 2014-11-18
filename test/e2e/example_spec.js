@@ -1,6 +1,9 @@
-/*global browser, by */
-
 'use strict';
+
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+var expect = chai.expect;
 
 describe('E2E: Example', function() {
 
@@ -10,12 +13,12 @@ describe('E2E: Example', function() {
   });
 
   it('should route correctly', function() {
-    expect(browser.getLocationAbsUrl()).toMatch('/');
+    expect(browser.getLocationAbsUrl()).to.eventually.equal('/');
   });
 
   it('should show the number defined in the controller', function() {
     var element = browser.findElement(by.css('.number-example'));
-    expect(element.getText()).toEqual('1234');
+    expect(element.getText()).to.eventually.equal('1234');
   });
 
 });
