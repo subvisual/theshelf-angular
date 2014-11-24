@@ -8,20 +8,25 @@ var source       = require('vinyl-source-stream');
 var streamify    = require('gulp-streamify');
 var watchify     = require('watchify');
 var browserify   = require('browserify');
-var uglify       = require('gulp-uglify');
+var uglifyify    = require("uglifyify")
 var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
-var ngAnnotate   = require('browserify-ngannotate');
+var es6ify       = require('es6ify');
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
-
-  var bundler = browserify({
+  var options = {
     entries: config.browserify.entries,
     cache: {},
-    packageCache: {},
-    fullPaths: true
-  });
+    packagecache: {},
+    fullpaths: true
+  };
+
+  if (!global.isProd) {
+    options['debug'] = true;
+  }
+
+  var bundler = browserify(options);
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
@@ -30,7 +35,10 @@ function buildScript(file) {
     });
   }
 
-  bundler.transform(ngAnnotate);
+  bundler.transform(es6ify);
+  if (global.isProd) {
+    bundler.transform(uglifyify);
+  }
 
   function rebundle() {
     var stream = bundler.bundle();
@@ -39,7 +47,6 @@ function buildScript(file) {
 
     return stream.on('error', handleErrors)
       .pipe(source(file))
-      .pipe(gulpif(global.isProd, streamify(uglify())))
       .pipe(gulp.dest(config.scripts.dest))
       .pipe(browserSync.reload({ stream: true, once: true }));
   }

@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * @ngInject
- */
 function exampleService($q, $http) {
 
   var service = {};
@@ -21,6 +18,8 @@ function exampleService($q, $http) {
 
   return service;
 
-}
+};
+
+exampleService.$inject = ['$q', '$http'];
 
 module.exports = exampleService;

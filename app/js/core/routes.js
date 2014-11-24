@@ -1,8 +1,5 @@
 'use strict';
 
-/**
- * @ngInject
- */
 function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $locationProvider.html5Mode(true);
@@ -17,6 +14,8 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 
-}
+};
+
+Routes.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
 module.exports = Routes;

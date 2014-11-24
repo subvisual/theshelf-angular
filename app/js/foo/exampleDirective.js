@@ -1,19 +1,17 @@
 'use strict';
 
-/**
- * @ngInject
- */
 function exampleDirective() {
 
   return {
     restrict: 'EA',
     link: function($scope, $element) {
+      var log = msg => console.log(msg);
       $element.on('click', function() {
-        console.log('element clicked');
+        log('element clicked');
       });
     }
   };
 
-}
+};
 
 module.exports = exampleDirective;
