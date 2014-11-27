@@ -7,7 +7,7 @@ An AngularJS web client for The Shelf
 
 2. Run `bower install` and `npm install` from the *angularjs* directory
 3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
-4. Your browser will automatically be opened and directed to the browser-sync proxy address
+4. The browser will automatically be opened and directed to the browser-sync proxy address
 5. To prepare assets for production, run the `gulp prod` task (Note: the production task does not fire up the express server, and won't provide you with browser-sync's live reloading. Simply use `gulp dev` during development. More information below)
 
 Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
@@ -17,9 +17,10 @@ Now that `gulp dev` is running, the server is up as well and serving files from 
 This project uses the following libraries:
 
 - [AngularJS](http://angularjs.org/)
-- [SASS](http://sass-lang.com/)
+- [Sass](http://sass-lang.com/)
 - [Gulp](http://gulpjs.com/)
 - [Browserify](http://browserify.org/)
+- [Traceur](https://github.com/google/traceur-compiler)
 
 Along with many Gulp libraries (these can be seen in either `package.json`, or at the top of each task in `/gulp/tasks/`).
 
@@ -59,43 +60,30 @@ main.js         (the main file read by Browserify, also where the application is
   exaple_directive.js
 ```
 
-
-##### Dependency injection
-
-Dependency injection is carried out with the `ng-annotate` library. In order to take advantage of this, a simple comment of the format:
-
-```
-/**
- * @ngInject
- */
-```
-
-needs to be added directly before any Angular functions/modules. The Gulp tasks will then take care of adding any dependency injection, requiring you only to specify the dependencies within the function call and nothing more.
-
 ---
 
 ### Gulp
 
-Gulp is a "streaming build system", providing a very fast and efficient method for running your build tasks.
+Gulp is a "streaming build system", providing a very fast and efficient method for running build tasks.
 
 ##### Web Server
 
-Gulp is used here to provide a very basic node/Express web server for viewing and testing your application as you build. It serves static files from the `build/` directory, leaving routing up to AngularJS. All Gulp tasks are configured to automatically reload the server upon file changes. The application is served to `localhost:3000` once you run the `gulp` task. To take advantage of the fast live reload injection provided by browser-sync, you must load the site at the proxy address (which usually defaults to `server port + 1`, and which by default is `localhost:3001`.)
+Gulp is used here to provide a very basic node/Express web server for viewing and testing the application as it's built. It serves static files from the `build/` directory, leaving routing up to AngularJS. All Gulp tasks are configured to automatically reload the server upon file changes. The application is served to `localhost:3000` once the `server` task is run. To take advantage of the fast live reload injection provided by browser-sync, load the site at the proxy address (which usually defaults to `server port + 1`, and which by default is `localhost:3001`.)
 
 ##### Scripts
 
-A number of build processes are automatically run on all of our Javascript files, run in the following order:
+A number of build processes are automatically run on all Javascript files, run in the following order:
 
-- **JSHint:** Gulp is currently configured to run a JSHint task before processing any Javascript files. This will show any errors in your code in the console, but will not prevent compilation or minification from occurring.
+- **JSHint:** Gulp is currently configured to run a JSHint task before processing any Javascript files. This will show any errors in the code in the console, but will not prevent compilation or minification from occurring.
 - **Browserify:** The main build process run on any Javascript files. This processes any of the `require('module')` statements, compiling the files as necessary.
-- **ngAnnotate:** This will automatically add the correct dependency injection to any AngularJS files, as mentioned previously.
-- **Uglifyify:** This will minify the file created by Browserify and ngAnnotate.
+- **Es6ify:** Browserify transform that transpiles ES6 to ES5.
+- **Uglifyify:** Browserify transform that minifies the code using UglifyJS2.
 
 The resulting file (`main.js`) is placed inside the directory `/build/js/`.
 
 ##### Styles
 
-Just one task is necessary for processing our SASS files, and that is `gulp-sass`. This will read the `main.sass` file, processing and importing any dependencies and then minifying the result. This file (`main.css`) is placed inside the directory `/build/css/`.
+Just one task is necessary for processing our Sass files, and that is `gulp-sass`. This will read the `main.sass` file, processing and importing any dependencies and then minifying the result. This file (`main.css`) is placed inside the directory `/build/css/`.
 
 ##### Images
 
@@ -103,23 +91,23 @@ Any images placed within `/app/images` will be automatically copied to the `buil
 
 ##### Views
 
-When any changes are made to the `index.html` file, the new file is simply copied to the `/build/` directory without any changes occurring.
+When any changes are made to the `index.html` file, the new file is simply copied to the `/build/` directory.
 
-Files inside `/app/views/`, on the other hand, go through a slightly more complex process. The `gulp-angular-templatecache` module is used in order to process all views/partials, creating the `template.js` file briefly mentioned earlier. This file will contain all the views, now in Javascript format inside Angular's `$templateCache` service. This will allow us to include them in our Javascript minification process, as well as avoid extra HTTP requests for our views.
+Files inside `/app/views/` go through a slightly more complex process. The `gulp-angular-templatecache` module is used in order to process all views/partials, creating the `template.js` file briefly mentioned earlier. This file will contain all the views, now in Javascript format inside Angular's `$templateCache` service. This will allow to include them in the Javascript minification process, as well as avoid extra HTTP requests for views.
 
 ##### Watching files
 
-All of the Gulp processes mentioned above are run automatically when any of the corresponding files in the `/app` directory are changed, and this is thanks to our Gulp watch tasks. Running `gulp dev` will begin watching all of these files, while also serving to `localhost:3000`, and with browser-sync proxy running at `localhost:3001` (by default).
+All of the Gulp processes mentioned above are run automatically when any of the corresponding files in the `/app` directory are changed. Running `gulp dev` will begin watching all of these files, while also serving to `localhost:3000`, and with browser-sync proxy running at `localhost:3001` (by default).
 
 ##### Production Task
 
-Just as there is the `gulp dev` task for development, there is also a `gulp prod` task for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
+Just as there is the `gulp dev` task for development, there is also a `gulp prod` task for putting the project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push the production-ready site to a hosting setup.
 
-**Reminder:** When running the production task, gulp will not fire up the express server and serve your index.html. This task is designed to be run before the `deploy` step that may copy the files from `/build` to a production web server.
+**Reminder:** When running the production task, gulp will not fire up the express server and serve the index.html. This task is designed to be run before the `deploy` step that may copy the files from `/build` to a production web server.
 
 ##### Testing
 
-A Gulp tasks also exists for running the test framework (discussed in detail below). Running `gulp test` will run any and all tests inside the `/test` directory and show the results (and any errors) in the terminal.
+A Gulp tasks also exists for running the test framework (discussed in detail below). Running `gulp test` will run all tests inside the `/test` directory and show the results (and any errors) in the terminal.
 
 ---
 
@@ -131,12 +119,10 @@ All of the tests can be run at once with the command `gulp test`. However, the t
 
 ##### End-to-End (e2e) Tests
 
-e2e tests, as hinted at by the name, consist of tests that involve multiple modules or require interaction between modules, similar to integration tests. These tests are carried out using the Angular library [Protractor](https://github.com/angular/protractor), which also utilizes Mocha. The goal is to ensure that the flow of your application is performing as designed from start to finish.
+e2e tests are carried out using the Angular library [Protractor](https://github.com/angular/protractor), which also utilizes Mocha.
 
-All e2e tests are run with `gulp protractor`. The command `npm run-script preprotractor` should be run once before running any Protractor tests (in order to update the webdrivers used by Selenium).
+All e2e tests are run with `gulp protractor`. It automatically updates the webdriver and starts the Selenium server.
 
 ##### Unit Tests
-
-Unit tests are used to test a single module (or "unit") at a time in order to ensure that each module performs as intended individually. In AngularJS this could be thought of as a single controller, directive, filter, service, etc.
 
 All unit tests are run with `gulp unit`.

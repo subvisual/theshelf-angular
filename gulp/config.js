@@ -20,9 +20,7 @@ module.exports = {
   },
 
   'views': {
-    'src': [
-      'app/views/**/*.html'
-    ],
+    'src': 'app/views/**/*.html',
     'dest': 'app/js/core'
   },
 

@@ -16,7 +16,6 @@ var es6ify       = require('es6ify');
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file) {
   var options = {
-    entries: config.browserify.entries,
     cache: {},
     packagecache: {},
     fullpaths: true
@@ -26,7 +25,7 @@ function buildScript(file) {
     options['debug'] = true;
   }
 
-  var bundler = browserify(options);
+  var bundler = browserify(es6ify.runtime, options);
 
   if ( !global.isProd ) {
     bundler = watchify(bundler);
@@ -35,7 +34,9 @@ function buildScript(file) {
     });
   }
 
-  bundler.transform(es6ify);
+  bundler
+    .add(config.browserify.entries)
+    .transform(es6ify);
   if (global.isProd) {
     bundler.transform(uglifyify);
   }
