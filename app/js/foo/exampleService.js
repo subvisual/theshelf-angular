@@ -18,7 +18,7 @@ function exampleService($q, $http) {
 
   return service;
 
-};
+}
 
 exampleService.$inject = ['$q', '$http'];
 

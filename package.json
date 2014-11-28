@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "browser-sync": "^1.5.8",
-    "browserify": "^5.10.0",
+    "browserify": "^6.3.3",
     "browserify-shim": "^3.8.0",
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
@@ -28,11 +28,8 @@
     "gulp-karma": "^0.0.4",
     "gulp-notify": "^2.0.0",
     "gulp-protractor": "0.0.11",
-    "gulp-rename": "^1.2.0",
     "gulp-sass": "^1.2.2",
-    "gulp-streamify": "0.0.5",
     "gulp-util": "^3.0.1",
-    "imagemin-pngcrush": "^0.1.0",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.21",
     "karma-bro": "^0.7.0",
@@ -46,7 +43,6 @@
     "pretty-hrtime": "^0.2.2",
     "protractor": "^1.2.0",
     "run-sequence": "^0.3.6",
-    "tiny-lr": "0.0.9",
     "traceur": "0.0.74",
     "uglifyify": "^2.5.0",
     "vinyl-source-stream": "^0.1.1",
@@ -54,7 +50,6 @@
   },
   "browserify": {
     "transform": [
-      "es6ify",
       "browserify-shim"
     ]
   },

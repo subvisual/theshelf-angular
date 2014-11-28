@@ -14,7 +14,7 @@ function OnRun($rootScope, AppSettings) {
     $rootScope.pageTitle += AppSettings.appTitle;
   });
 
-};
+}
 
 OnRun.$inject = ['$rootScope', 'AppSettings'];
 

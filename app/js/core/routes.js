@@ -14,7 +14,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 
-};
+}
 
 Routes.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
