@@ -1,5 +1,6 @@
 'use strict';
 
+var argv         = require('yargs').argv
 var browserSync  = require('browser-sync');
 var browserify   = require('browserify');
 var config       = require('../config');
@@ -15,8 +16,8 @@ function buildScript(file) {
   var options = {
     cache: {},
     packagecache: {},
-    fullpaths: true
-    // debug: !global.isProd
+    fullpaths: true,
+    debug: argv.debug
   };
 
   var bundler = browserify(es6ify.runtime, options);
