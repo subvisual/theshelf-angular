@@ -1,7 +1,7 @@
 'use strict';
 
-var AppSettings = {
-  appTitle: 'Example Application',
+let AppSettings = {
+  appTitle: 'The Shelf',
   apiUrl: '/api/v1'
 };
 

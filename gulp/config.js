@@ -22,9 +22,9 @@ module.exports = {
   'views': {
     'watch': [
       'app/index.html',
-      'app/views/**/*.html'
+      'app/js/**/*.html'
     ],
-    'src': 'app/views/**/*.html',
+    'src': 'app/js/**/*.html',
     'dest': 'app/js/core'
   },
 

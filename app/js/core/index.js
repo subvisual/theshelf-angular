@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 require('angular-ui-router');
 require('./templates');
 

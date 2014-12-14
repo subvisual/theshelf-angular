@@ -1,17 +1,28 @@
 'use strict';
 
-var angular = require('angular');
+let angular = require('angular');
 
 // core modules
 require('./core');
 
-// feature modules
-require('./foo');
+// page modules
+require('./books_page');
+
+// component modules
+require('./components/books_list');
+require('./components/search_bar');
 
 // create and bootstrap application
 angular.element(document).ready(function() {
 
-  angular.module('theshelf', ['theshelf.core', 'theshelf.foo']);
+  angular.module('theshelf',
+    [
+      'theshelf.core',
+      'theshelf.books_page',
+      'theshelf.books_list',
+      'theshelf.search_bar'
+    ]
+  );
 
   angular.bootstrap(document, ['theshelf']);
 

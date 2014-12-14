@@ -1,16 +1,43 @@
 'use strict';
 
+var istanbul = require('browserify-istanbul');
+
 module.exports = function(config) {
 
   var configuration = {
 
     basePath: '../',
+
     frameworks: ['mocha', 'sinon-chai', 'browserify'],
+
+    files: [
+      'node_modules/traceur/bin/traceur-runtime.js',
+      'app/js/main.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'test/unit/**/*.js',
+      'app/js/**/*.html'
+    ],
+
     preprocessors: {
-      'app/js/**/*.js': ['browserify']
+      'app/js/main.js': ['browserify'],
+      'app/js/**/*.html': 'ng-html2js'
     },
-    browsers: ['Firefox', 'Chrome', 'PhantomJS'],
-    reporters: ['progress'],
+
+    ngHtml2JsPreprocessor: {
+      moduleName: 'karma.templates',
+      stripPrefix: 'app/js/'
+    },
+
+    coverageReporter: {
+      'reporters': [
+        {'type': 'text-summary'}
+        // {'type': 'html'}
+      ]
+    },
+
+    reporters: ['progress', 'coverage'],
+
+    browsers: ['Firefox', 'Chrome'],
 
     autoWatch: true,
 
@@ -20,15 +47,9 @@ module.exports = function(config) {
 
     urlRoot: '/__karma__/',
 
-    files: [
-      'bower_components/angular-mocks/angular-mocks.js',
-      'app/js/main.js',
-      'test/unit/**/*.js'
-    ],
-
     browserify: {
       debug: true,
-      transform: [ 'es6ify' ]
+      transform: ['es6ify', istanbul({ ignore: ['**/bower_components/**'] })]
     }
 
   };

@@ -1,7 +1,6 @@
 'use strict';
 
-var chai = require('chai'),
-    expect = chai.expect;
+var expect = require('../test_helper').expect;
 
 describe('E2E: Routes', function() {
 

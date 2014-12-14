@@ -5,11 +5,9 @@ describe('Unit: Core Constants', function() {
   var constants;
 
   beforeEach(function() {
-    // instantiate the theshelf.core module
-    angular.mock.module('theshelf.core');
+    module('theshelf.core');
 
-    // mock the directive
-    angular.mock.inject(function(AppSettings) {
+    inject(function(AppSettings) {
       constants = AppSettings;
     });
   });
@@ -19,7 +17,7 @@ describe('Unit: Core Constants', function() {
   });
 
   it('should have an application name', function() {
-    expect(constants.appTitle).to.equal('Example Application');
+    expect(constants.appTitle).to.equal('The Shelf');
   });
 
 });
