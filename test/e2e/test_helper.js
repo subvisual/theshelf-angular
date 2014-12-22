@@ -8,6 +8,7 @@ global.httpBackend = new HttpBackend(browser);
 global.captureBrowserLog = require('./support/capture_browser_log');
 global.screenshot = require('./support/screenshot');
 global.mockData = require('./support/mock_data');
+global.login = require('./support/login');
 
 // clean localstorage and cookies after every test
 afterEach(function () {

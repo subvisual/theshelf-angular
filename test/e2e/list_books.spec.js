@@ -5,6 +5,8 @@ var BooksPage = require('./pages/books_page');
 describe('E2E: List books', function() {
 
   beforeEach(function() {
+    login();
+
     this.page = new BooksPage();
     this.page.get();
   });

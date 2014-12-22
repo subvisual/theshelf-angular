@@ -38,7 +38,7 @@ module.exports = function(config) {
 
     reporters: ['progress', 'coverage'],
 
-    browsers: ['Firefox', 'Chrome'],
+    browsers: ['Chrome'],
 
     autoWatch: true,
 
@@ -47,6 +47,8 @@ module.exports = function(config) {
     },
 
     urlRoot: '/__karma__/',
+
+    // logLevel: LOG_DEBUG,
 
     browserify: {
       debug: true,

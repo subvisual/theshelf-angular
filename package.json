@@ -38,7 +38,6 @@
     "karma-browserify": "^1.0.1",
     "karma-chrome-launcher": "^0.1.4",
     "karma-coverage": "^0.2.7",
-    "karma-firefox-launcher": "^0.1.3",
     "karma-mocha": "^0.1.9",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-sinon-chai": "^0.2.0",
@@ -46,6 +45,7 @@
     "pretty-hrtime": "^0.2.2",
     "protractor": "^1.2.0",
     "run-sequence": "^0.3.6",
+    "sinon": "^1.12.2",
     "traceur": "0.0.74",
     "uglifyify": "^2.5.0",
     "vinyl-source-stream": "^0.1.1",
@@ -61,8 +61,11 @@
     "angular": "./bower_components/angular/angular.min.js",
     "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
     "angular-mocks": "./bower_components/angular-mocks/angular-mocks.js",
+    "angular-data-mocks": "./bower_components/angular-data-mocks/dist/angular-data-mocks.min.js",
+    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
+    "angular-storage": "./bower_components/a0-angular-storage/dist/angular-storage.min.js",
     "angular-data": "./bower_components/angular-data/dist/angular-data.min.js",
-    "angular-data-mocks": "./bower_components/angular-data-mocks/dist/angular-data-mocks.min.js"
+    "angular-messages": "./bower_components/angular-messages/angular-messages.js"
   },
   "browserify-shim": {
     "angular": "angular"

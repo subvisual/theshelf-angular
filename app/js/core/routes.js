@@ -5,6 +5,13 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('Login', {
+      url: '/login',
+      controller: 'LoginPageCtrl',
+      controllerAs: 'ctrl',
+      templateUrl: 'login_page/login_page.html',
+      title: 'Login'
+    })
     .state('Home', {
       url: '/',
       controller: 'BooksPageCtrl',
@@ -13,7 +20,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       title: 'Home'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
 }
 

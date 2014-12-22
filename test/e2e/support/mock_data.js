@@ -5,7 +5,7 @@
  * mockData('post_session')
  */
 function mockData(mockDataFile) {
-  return require('../mock_data/' + mockDataFile + '.json');
+  return require('../../mock_data/' + mockDataFile + '.json');
 }
 
 /** Retrieves .json mock data */
