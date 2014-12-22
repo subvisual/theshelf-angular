@@ -1,0 +1,16 @@
+<div ng-show="ctrl.error">{{ctrl.error}}</div>
+<form name="form" ng-submit="ctrl.login()" role="form">
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" ng-model="ctrl.email" required />
+    <span ng-show="form.email.$dirty && form.email.$error.required" >email is required</span>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password"ng-model="ctrl.password" required />
+    <span ng-show="form.password.$dirty && form.password.$error.required">Password is required</span>
+  </div>
+  <div>
+    <button type="submit" ng-disabled="form.$invalid || ctrl.dataLoading">Login</button>
+  </div>
+</form>

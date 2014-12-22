@@ -4,8 +4,10 @@ let angular = require('angular');
 
 // core modules
 require('./core');
+require('./auth');
 
 // page modules
+require('./login_page');
 require('./books_page');
 
 // component modules
@@ -18,6 +20,8 @@ angular.element(document).ready(function() {
   angular.module('theshelf',
     [
       'theshelf.core',
+      'theshelf.auth',
+      'theshelf.login_page',
       'theshelf.books_page',
       'theshelf.books_list',
       'theshelf.search_bar'
