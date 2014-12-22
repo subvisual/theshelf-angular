@@ -8,8 +8,7 @@ function DSConfig(DSHttpAdapterProvider, DSProvider, AppSettings) {
       // TODO use dynamic token
       Authorization: 'Token token=pm0vuTfnJnZ_uK7MjEoFrQ',
       Accept: AppSettings.apiAcceptHeader
-    },
-    timeout: 20000
+    }
   });
 
   DSProvider.defaults.baseUrl = AppSettings.apiUrl;
