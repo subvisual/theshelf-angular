@@ -1,9 +1,7 @@
 'use strict';
 
-function UserModel($q, DS) {
-  let currentUser;
-
-  let User = DS.defineResource({
+function User(DS) {
+  return DS.defineResource({
     name: 'user',
     endpoint: 'users',
     methods: {
@@ -12,28 +10,8 @@ function UserModel($q, DS) {
       }
     }
   });
-
-  User.findCurrentUser = (uid) => {
-    let deferred = $q.defer();
-
-    if (currentUser) {
-      deferred.resolve(currentUser);
-    } else {
-      User.find(uid).then(
-        (user) => {
-          currentUser = user;
-          deferred.resolve(currentUser);
-        },
-        deferred.reject
-      );
-    }
-
-    return deferred.promise;
-  };
-
-  return User;
 }
 
-UserModel.$inject = ['$q', 'DS'];
+User.$inject = ['DS'];
 
-module.exports = UserModel;
+module.exports = User;

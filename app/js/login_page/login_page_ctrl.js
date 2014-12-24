@@ -1,22 +1,17 @@
 'use strict';
 
-class LoginPageCtrl {
-  constructor($state, Auth) {
-    this.$state = $state;
-    this.Auth = Auth;
-  }
-
-  login() {
+function LoginPageCtrl($state, Auth) {
+  this.login = function() {
     this.dataLoading = true;
-    this.Auth.login(this.email, this.password)
+    Auth.login(this.email, this.password)
       .then(() => {
-        this.$state.go('Home');
+        $state.go('Home');
         this.dataLoading = false;
       }, (error) => {
         this.error = error;
         this.dataLoading = false;
       });
-  }
+  };
 }
 
 LoginPageCtrl.$inject = ['$state', 'Auth'];

@@ -2,7 +2,6 @@
 
 let angular = require('angular');
 require('angular-ui-router');
-require('angular-storage');
 require('angular-data');
 require('./templates');
 

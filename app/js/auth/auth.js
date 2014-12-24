@@ -1,6 +1,6 @@
 'use strict';
 
-function Auth($q, Session, CurrentUser, AuthHeaders, AppSettings) {
+function Auth($rootScope, $http, $q, Session, CurrentUser, AuthHeaders, AppSettings) {
   let handleLoginResponse = (response) => {
     let token = response.data.authentication_token;
     let user = response.data;
@@ -34,13 +34,25 @@ function Auth($q, Session, CurrentUser, AuthHeaders, AppSettings) {
     return deferred.promise;
   };
 
+  let logout = () => {
+    Session.destroy();
+    CurrentUser.reset();
+    AuthHeaders.resetAuthorization();
+  };
+
+  let onCurrentUserChanged = (cb) =>
+    $rootScope.$on('auth:current-user-changed', cb);
+
   return {
+    onCurrentUserChanged,
     restoreSession,
     login,
+    logout,
+    get currentUser() { return CurrentUser.user; },
     get isAuthenticated() { return Session.isAuthenticated; }
   };
 }
 
-Auth.$inject = ['$q', 'Session', 'CurrentUser', 'AuthHeaders', 'AppSettings'];
+Auth.$inject = ['$rootScope', '$http', '$q', 'Session', 'CurrentUser', 'AuthHeaders', 'AppSettings'];
 
 module.exports = Auth;

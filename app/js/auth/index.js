@@ -1,6 +1,7 @@
 'use strict';
 
 let angular = require('angular');
+require('angular-storage');
 
 module.exports = angular.module('theshelf.auth', ['angular-storage'])
   .factory('Auth', require('./auth'))
