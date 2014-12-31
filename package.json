@@ -57,8 +57,10 @@
   },
   "browser": {
     "angular": "./bower_components/angular/angular.min.js",
+    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
     "angular-mocks": "./bower_components/angular-mocks/angular-mocks.js",
-    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
+    "angular-data": "./bower_components/angular-data/dist/angular-data.min.js",
+    "angular-data-mocks": "./bower_components/angular-data-mocks/dist/angular-data-mocks.min.js"
   },
   "browserify-shim": {
     "angular": "angular"
