@@ -22,19 +22,25 @@ function buildScript(file) {
 
   var bundler = browserify(es6ify.runtime, options);
 
-  if ( !global.isProd ) {
+  if (global.isDev()) {
     bundler = watchify(bundler);
     bundler.on('update', rebundle);
     bundler.on('log', function (msg) {
       gutil.log(gutil.colors.magenta(msg));
-    })
+    });
+  }
+
+  if (global.isTest()) {
+    var entryFile = config.browserify.e2e_entry;
+  } else {
+    var entryFile = config.browserify.main_entry;
   }
 
   bundler
-    .add(config.browserify.entries)
+    .add(entryFile)
     .transform(es6ify);
 
-  if (global.isProd) { bundler.transform(uglifyify); }
+  if (global.isProd()) { bundler.transform(uglifyify); }
 
   function rebundle() {
     gutil.log('Starting Watchify rebundle...');
@@ -52,5 +58,5 @@ function buildScript(file) {
 }
 
 gulp.task('browserify', function() {
-  return buildScript('main.js');
+  return buildScript(config.browserify.bundleName);
 });

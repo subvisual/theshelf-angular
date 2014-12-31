@@ -25,6 +25,8 @@ bower_components
 # Users Environment Variables
 .lock-wscript
 
+report
+
 # Build files
 build
 templates.js

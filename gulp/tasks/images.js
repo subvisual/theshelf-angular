@@ -12,7 +12,7 @@ gulp.task('images', function() {
 
   return gulp.src(config.images.src)
     .pipe(changed(dest)) // Ignore unchanged files
-    .pipe(gulpif(global.isProd, imagemin()))    // Optimize
+    .pipe(gulpif(global.isProd(), imagemin()))    // Optimize
     .pipe(gulp.dest(dest));
 
 });

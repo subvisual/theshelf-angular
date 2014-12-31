@@ -31,7 +31,7 @@ describe('Unit: SearchBar SearchBar', function() {
       it('should be called', function() {
         var isolated = element.isolateScope();
         isolated.ctrl.onUserInput();
-        expect(callbackSpy.called).to.be.true;
+        expect(callbackSpy).to.have.been.called;
       });
     });
   });

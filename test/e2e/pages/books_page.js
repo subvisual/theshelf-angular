@@ -1,7 +1,6 @@
 function BooksPage() {
   this.get = function() {
     browser.get('/');
-    browser.waitForAngular();
   }
 
   this.bookRepeater = by.repeater('book in ctrl.books');

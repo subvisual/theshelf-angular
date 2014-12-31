@@ -7,7 +7,13 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     version: '',
-    platform: 'ANY'
+    platform: 'ANY',
+    chromeOptions: {
+      args: ['incognito', 'disable-extensions', 'start-maximized', 'enable-crash-reporter-for-testing']
+    },
+    loggingPrefs: {
+      browser: 'ALL'
+    }
   },
 
   framework: 'mocha',
