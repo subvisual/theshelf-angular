@@ -33,7 +33,8 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./app/js/main.js'],
+    'main_entry': './app/js/main.js',
+    'e2e_entry' : './app/js/main_e2e.js',
     'bundleName': 'main.js'
   },
 

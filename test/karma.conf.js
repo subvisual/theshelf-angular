@@ -14,6 +14,7 @@ module.exports = function(config) {
       'node_modules/traceur/bin/traceur-runtime.js',
       'app/js/main.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-data-mocks/dist/angular-data-mocks.js',
       'test/unit/**/*.js',
       'app/js/**/*.html'
     ],

@@ -5,13 +5,13 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-  .state('Home', {
-    url: '/',
-    controller: 'BooksPageCtrl',
-    controllerAs: 'ctrl',
-    templateUrl: 'books_page/books_page.html',
-    title: 'Home'
-  });
+    .state('Home', {
+      url: '/',
+      controller: 'BooksPageCtrl',
+      controllerAs: 'ctrl',
+      templateUrl: 'books_page/books_page.html',
+      title: 'Home'
+    });
 
   $urlRouterProvider.otherwise('/');
 

@@ -21,8 +21,7 @@ describe('Unit: SearchBar SearchBarCtrl', function() {
 
       ctrl.handleChange();
 
-      expect(onUserInputSpy.calledWith({searchText:ctrl.input})).to.be.true;
+      expect(onUserInputSpy).to.have.been.calledWith({searchText:ctrl.input});
     });
   });
 });
-

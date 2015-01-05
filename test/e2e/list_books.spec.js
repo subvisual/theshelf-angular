@@ -1,6 +1,5 @@
 'use strict';
 
-var expect = require('../test_helper').expect;
 var BooksPage = require('./pages/books_page');
 
 describe('E2E: List books', function() {

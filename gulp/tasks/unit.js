@@ -5,7 +5,7 @@ var gulp   = require('gulp');
 var karma  = require('gulp-karma');
 var config = require('../config');
 
-gulp.task('unit', function() {
+gulp.task('unit', ['views'], function() {
 
   var autoWatch = argv.watch ? 'watch' : 'run';
 

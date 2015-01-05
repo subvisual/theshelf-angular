@@ -12,7 +12,7 @@ gulp.task('styles', function () {
   return gulp.src(config.styles.src)
     .pipe(sass({
       sourceComments: 'map',
-      outputStyle: global.isProd ? 'compressed' : 'nested'
+      outputStyle: global.isProd() ? 'compressed' : 'nested'
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(config.styles.dest))

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html>
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -10,10 +10,15 @@
 
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
+  <body ng-app='theshelf' ng-strict-di>
     <side-content></side-content>
     <div ui-view></div>
 
     <script src="js/main.js"></script>
+    <!-- @if ENV='test' -->
+    <script type="text/javascript">
+      document.getElementsByTagName('body')['ng-app'] = 'theshelf_e2e';
+    </script>
+    <!-- @endif -->
   </body>
 </html>

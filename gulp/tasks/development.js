@@ -7,7 +7,7 @@ gulp.task('dev', ['clean'], function(cb) {
 
   cb = cb || function() {};
 
-  global.isProd = false;
+  global.env = 'dev';
 
   runSequence('styles', 'images', 'views', 'lint', 'browserify', 'watch', cb);
 

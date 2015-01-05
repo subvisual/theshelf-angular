@@ -3,11 +3,11 @@
 var gulp        = require('gulp');
 var runSequence = require('run-sequence');
 
-gulp.task('prod', ['clean'], function(cb) {
+gulp.task('prepare_e2e', ['clean'], function(cb) {
 
   cb = cb || function() {};
 
-  global.env = 'prod';
+  global.env = 'test';
 
   runSequence('styles', 'images', 'views', 'browserify', cb);
 
