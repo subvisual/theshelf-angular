@@ -15,6 +15,7 @@ describe('Unit: Auth User', function() {
 
   describe('#name', function() {
     it('returns first name followed by last name', function() {
+      /* jshint camelcase: false */
       User.inject({ id: 1, first_name: 'John', last_name: 'Anderson' });
 
       var user = User.get(1);

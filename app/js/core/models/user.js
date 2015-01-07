@@ -6,6 +6,7 @@ function User(DS) {
     endpoint: 'users',
     methods: {
       name: function () {
+        /* jshint camelcase: false */
         return `${this.first_name} ${this.last_name}`;
       }
     }

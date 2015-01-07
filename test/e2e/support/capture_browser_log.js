@@ -1,3 +1,5 @@
+'use strict';
+
 var fs = require('fs');
 var path = require('path');
 
@@ -14,8 +16,8 @@ var errorCallback = function (err) {
   console.log(err);
 };
 
-var timestampToDate = function (unix_timestamp) {
-  var date = new Date(unix_timestamp);
+var timestampToDate = function (unixTimestamp) {
+  var date = new Date(unixTimestamp);
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var seconds = date.getSeconds();
@@ -37,7 +39,9 @@ var timestampToDate = function (unix_timestamp) {
  * captureBrowserLog.call(this);
  */
 function captureBrowserLog() {
-  var specName = this.test.title.replace(new RegExp(' ', 'g'), '-');
+  /* jshint validthis: true */
+  var spec = this;
+  var specName = spec.test.title.replace(new RegExp(' ', 'g'), '-');
 
   var baseFileName = specName + '-' + getDateStr();
 
@@ -69,7 +73,7 @@ function captureBrowserLog() {
         }, errorCallback);
     }
   });
-};
+}
 
 /** Captures the browser log */
 module.exports = captureBrowserLog;

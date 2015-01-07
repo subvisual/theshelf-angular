@@ -25,7 +25,7 @@ describe('Unit: Auth SessionStorage', function() {
     });
 
     it('returns the data stored', function() {
-      var setStub = sinon.stub(store, 'set');
+      sinon.stub(store, 'set');
       var sessionData = { uid: 'userId', token: 's0meT0k3n' };
 
       var returnedData = SessionStorage.create(sessionData);

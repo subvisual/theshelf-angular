@@ -1,7 +1,9 @@
+'use strict';
+
 function BooksPage() {
   this.get = function() {
     browser.get('/');
-  }
+  };
 
   this.bookRepeater = by.repeater('book in ctrl.books');
   this.firstBook = element(this.bookRepeater.row(0));

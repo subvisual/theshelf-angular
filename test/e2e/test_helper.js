@@ -1,3 +1,5 @@
+'use strict';
+
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
@@ -18,11 +20,12 @@ afterEach(function () {
 
 // each test should fail if browser console has errors
 afterEach(function() {
-  browser.manage().logs().get('browser').then(function(browserLog) {
-    var errors = browserLog.filter(function(x){return x.level.name === 'SEVERE'});
-    if (errors.length) {
-      console.log('Errors: ' + require('util').inspect(errors));
-      expect(errors.length).to.equal(0);
-    }
-  });
+  browser.manage().logs().get('browser')
+    .then(function(browserLog) {
+      var errors = browserLog.filter(function(x){ return x.level.name === 'SEVERE'; });
+      if (errors.length) {
+        console.log('Errors: ' + require('util').inspect(errors));
+        expect(errors.length).to.equal(0);
+      }
+    });
 });

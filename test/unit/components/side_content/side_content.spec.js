@@ -12,8 +12,8 @@ describe('Unit: SideContent SideContent', function() {
       element = $compile(element)(scope);
 
       scope.$digest();
-    })
-  };
+    });
+  }
 
   describe('user is signed in', function() {
     var logoutSpy, currentUser;
@@ -58,6 +58,7 @@ describe('Unit: SideContent SideContent', function() {
       compileDirective();
     });
 
+    /* jshint quotmark: false */
     it("doesn't show any information", function() {
       expect(element.children().attr('class')).to.contain('ng-hide');
     });

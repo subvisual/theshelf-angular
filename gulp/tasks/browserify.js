@@ -1,6 +1,6 @@
 'use strict';
 
-var argv         = require('yargs').argv
+var argv         = require('yargs').argv;
 var browserSync  = require('browser-sync');
 var browserify   = require('browserify');
 var config       = require('../config');
@@ -9,18 +9,16 @@ var gulp         = require('gulp');
 var gutil        = require('gulp-util');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
-var uglifyify    = require("uglifyify")
+var uglifyify    = require('uglifyify');
 var watchify     = require('watchify');
 
-function buildScript(file) {
-  var options = {
+function buildScript(entryFile) {
+  var bundler = browserify(es6ify.runtime, {
     cache: {},
     packagecache: {},
     fullpaths: true,
     debug: argv.debug
-  };
-
-  var bundler = browserify(es6ify.runtime, options);
+  });
 
   if (global.isDev()) {
     bundler = watchify(bundler);
@@ -30,12 +28,6 @@ function buildScript(file) {
     });
   }
 
-  if (global.isTest()) {
-    var entryFile = config.browserify.e2e_entry;
-  } else {
-    var entryFile = config.browserify.main_entry;
-  }
-
   bundler
     .add(entryFile)
     .transform(es6ify);
@@ -43,14 +35,10 @@ function buildScript(file) {
   if (global.isProd()) { bundler.transform(uglifyify); }
 
   function rebundle() {
-    gutil.log('Starting Watchify rebundle...');
     return bundler.bundle()
       .on('error', handleErrors)
-      .pipe(source(file))
+      .pipe(source(config.browserify.bundleName))
       .pipe(gulp.dest(config.scripts.dest))
-      .on('end', function () {
-        gutil.log('Finished Watchify rebundle');
-      })
       .pipe(browserSync.reload({ stream: true, once: true }));
   }
 
@@ -58,5 +46,8 @@ function buildScript(file) {
 }
 
 gulp.task('browserify', function() {
-  return buildScript(config.browserify.bundleName);
+  var entryFile = config.browserify.mainEntry;
+  if (global.isTest()) { entryFile = config.browserify.e2eEntry; }
+
+  return buildScript(entryFile);
 });

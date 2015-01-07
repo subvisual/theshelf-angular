@@ -1,9 +1,11 @@
+'use strict';
+
 /**
  * Logs in the application
  * @example
  * login()
  */
-var login = function() {
+function login() {
   var LoginPage = require('../pages/login_page');
   var page = new LoginPage();
   httpBackend.onLoad.when('GET', /users\/2/).respond(200, mockData('user'));

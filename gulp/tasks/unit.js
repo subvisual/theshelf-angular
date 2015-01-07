@@ -1,6 +1,6 @@
 'use strict';
 
-var argv   = require('yargs').argv
+var argv   = require('yargs').argv;
 var gulp   = require('gulp');
 var karma  = require('gulp-karma');
 var config = require('../config');

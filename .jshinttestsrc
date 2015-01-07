@@ -1,0 +1,7 @@
+{
+  "extends": ".jshintrc",
+  "expr": true,
+  "globals": {
+    "angular": false
+  }
+}

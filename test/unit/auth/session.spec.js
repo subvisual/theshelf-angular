@@ -53,6 +53,7 @@ describe('Unit: Auth Session', function() {
         sinon.stub(SessionStorage, 'retrieve');
       });
 
+      /* jshint quotmark: false */
       it("doesn't do anything", function() {
         var createSpy = sinon.stub(CurrentUser, 'create');
 
@@ -71,7 +72,7 @@ describe('Unit: Auth Session', function() {
     it('returns a promise', function() {
       DS.expectCreate('session', requestParams).respond({});
 
-      expect(Session.create(email, password)).to.respondTo('then');;
+      expect(Session.create(email, password)).to.respondTo('then');
     });
 
     it('does a POST request to /session', function() {
@@ -86,6 +87,7 @@ describe('Unit: Auth Session', function() {
     describe('POST /session is fullfilled', function() {
       var id = 1;
       var token = 's0meT0k3n';
+      /* jshint camelcase: false */
       var sessionResponse = { id: id, email: email, authentication_token: token };
       var sessionData = { uid: id, token: token };
       var createCurrentUserStub, sessionStorageStub;

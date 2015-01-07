@@ -1,3 +1,5 @@
+'use strict';
+
 var fs = require('fs');
 var path = require('path');
 
@@ -12,7 +14,9 @@ var screenshotsDir = path.resolve(reportDir + '/screenshots/');
  * screenshot.call(this);
  */
 function screenshot() {
-  var filename = this.test.title.replace(new RegExp(' ', 'g'), '-');
+  /* jshint validthis: true */
+  var spec = this;
+  var filename = spec.test.title.replace(new RegExp(' ', 'g'), '-');
 
   browser.takeScreenshot().then(function (png) {
     if (!fs.existsSync(reportDir)) {

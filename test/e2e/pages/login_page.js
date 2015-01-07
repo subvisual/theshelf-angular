@@ -1,7 +1,9 @@
+'use strict';
+
 function LoginPage() {
   this.get = function() {
     browser.get('/login');
-  }
+  };
 
   this.error = element(by.binding('ctrl.error'));
   this.emailInput = element(by.model('ctrl.email'));
@@ -12,7 +14,7 @@ function LoginPage() {
     this.emailInput.sendKeys('zeto@gmail.com');
     this.passwordInput.sendKeys('password');
     this.loginButton.click();
-  }
+  };
 }
 
 module.exports = LoginPage;

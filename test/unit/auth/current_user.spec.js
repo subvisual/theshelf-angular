@@ -23,6 +23,7 @@ describe('Unit: Auth CurrentUser', function() {
   describe('#create', function() {
     var uid = 1;
     var token = 't0k3n';
+    /* jshint camelcase: false */
     var userFromStore = { id: uid, first_name: 'Sally' };
     var userData = { uid: uid, token: token };
 
@@ -93,6 +94,7 @@ describe('Unit: Auth CurrentUser', function() {
 
     it('returns the currentUser', function() {
       var uid = 1;
+      /* jshint camelcase: false */
       var user = { id: uid, first_name: 'Sally' };
       DS.expectFind('user', uid).respond(user);
       CurrentUser.create({ uid: uid });

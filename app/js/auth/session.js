@@ -4,6 +4,7 @@ function Session($q, DS, SessionStorage, CurrentUser) {
   let SessionDS = DS.defineResource('session');
 
   let handleSessionResponse = (response) => {
+    /* jshint camelcase: false */
     let token = response.authentication_token;
     let uid = response.id;
     return { uid, token };

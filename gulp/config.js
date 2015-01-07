@@ -33,14 +33,15 @@ module.exports = {
   },
 
   'browserify': {
-    'main_entry': './app/js/main.js',
-    'e2e_entry' : './app/js/main_e2e.js',
+    'mainEntry': './app/js/main.js',
+    'e2eEntry' : './app/js/main_e2e.js',
     'bundleName': 'main.js'
   },
 
   'test': {
     'karma': 'test/karma.conf.js',
-    'protractor': 'test/protractor.conf.js'
+    'protractor': 'test/protractor.conf.js',
+    'src': 'test/**/*.js'
   }
 
 };

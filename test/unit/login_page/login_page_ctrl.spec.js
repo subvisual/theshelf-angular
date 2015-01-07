@@ -8,7 +8,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
     module('theshelf.core');
     module('theshelf.login_page');
 
-    inject(function($rootScope, $controller, _$q_, _$state_) {
+    inject(function($rootScope, $controller, _$q_) {
       scope = $rootScope.$new();
       ctrl = $controller;
       $q = _$q_;
@@ -63,7 +63,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
 
         ctrl.login();
 
-        expect(ctrl.dataLoading).to.be.true
+        expect(ctrl.dataLoading).to.be.true;
       });
 
       it('is set to false when the promise is fullfilled', function() {
@@ -73,7 +73,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
         ctrl.login();
         scope.$digest();
 
-        expect(ctrl.dataLoading).to.be.false
+        expect(ctrl.dataLoading).to.be.false;
       });
 
       it('is set to false when the promise is rejected', function() {
@@ -83,11 +83,12 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
         ctrl.login();
         scope.$digest();
 
-        expect(ctrl.dataLoading).to.be.false
+        expect(ctrl.dataLoading).to.be.false;
       });
     });
 
     describe('error property', function() {
+      /* jshint quotmark: false */
       it("is equal to the rejected promise's reason", function() {
         var rejectReason = 'some error message';
         var SessionMock = { create: rejectPromise(rejectReason) };

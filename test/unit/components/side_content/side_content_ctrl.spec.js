@@ -13,6 +13,7 @@ describe('Unit: SideContent SideContentCtrl', function() {
     });
   });
 
+  /* jshint quotmark: false */
   it("registers a listener for Session's currentUser changes", function(){
     var onCurrentUserChangeSpy = sinon.spy();
     var SessionMock =  { onCurrentUserChanged: onCurrentUserChangeSpy };
@@ -23,11 +24,12 @@ describe('Unit: SideContent SideContentCtrl', function() {
   });
 
   describe('currentUser property', function(){
+    /* jshint quotmark: false */
     it("updates when Session's currentUser changes", function(){
       var myUser = 'myUser';
       var SessionMock = { currentUser: myUser,
                           onCurrentUserChanged: function(cb) {
-                            $timeout(function(){cb()}, 0);
+                            $timeout(function(){ cb(); }, 0);
                           }
                         };
 

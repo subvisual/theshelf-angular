@@ -3,6 +3,7 @@
 var gulp            = require('gulp');
 var protractor      = require('gulp-protractor').protractor;
 var webdriver       = require('gulp-protractor').webdriver;
+/* jshint camelcase: false */
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
 var config          = require('../config');
 

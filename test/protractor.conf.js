@@ -9,7 +9,12 @@ exports.config = {
     version: '',
     platform: 'ANY',
     chromeOptions: {
-      args: ['incognito', 'disable-extensions', 'start-maximized', 'enable-crash-reporter-for-testing']
+      args: [
+        'incognito',
+        'disable-extensions',
+        'start-maximized',
+        'enable-crash-reporter-for-testing'
+      ]
     },
     loggingPrefs: {
       browser: 'ALL'

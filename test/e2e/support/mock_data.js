@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Retrieves .json mock data
  * @example

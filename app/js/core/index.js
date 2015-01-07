@@ -6,7 +6,13 @@ require('angular-data');
 require('angular-messages');
 require('./templates');
 
-module.exports = angular.module('theshelf.core', ['ui.router', 'templates', 'angular-data.DS', 'ngMessages'])
+module.exports = angular.module('theshelf.core',
+                                [
+                                  'ui.router',
+                                  'templates',
+                                  'angular-data.DS',
+                                  'ngMessages'
+                                ])
   .constant('AppSettings', require('./constants'))
   .factory('User', require('./models/user'))
   .config(require('./routes'))
