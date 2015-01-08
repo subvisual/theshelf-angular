@@ -5,8 +5,8 @@ import './core';
 import './auth';
 
 // page modules
-import './login_page';
-import './books_page';
+import './pages/login';
+import './pages/books';
 
 // component modules
 import './components/side_content';
@@ -17,10 +17,10 @@ angular.module('theshelf',
   [
     'theshelf.core',
     'theshelf.auth',
-    'theshelf.login_page',
-    'theshelf.books_page',
-    'theshelf.side_content',
-    'theshelf.books_list',
-    'theshelf.search_bar'
+    'theshelf.pages.login',
+    'theshelf.pages.books',
+    'theshelf.components.side_content',
+    'theshelf.components.books_list',
+    'theshelf.components.search_bar'
   ]
 );

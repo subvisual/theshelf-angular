@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Unit: SideContent SideContent', function() {
+describe('Unit: theshelf.components.side_content SideContent', function() {
   var element, scope;
 
   function compileDirective() {
@@ -24,7 +24,7 @@ describe('Unit: SideContent SideContent', function() {
       };
       logoutSpy = sinon.spy();
 
-      module('theshelf.side_content', function($controllerProvider) {
+      module('theshelf.components.side_content', function($controllerProvider) {
         $controllerProvider.register('SideContentCtrl', function() {
           this.currentUser = currentUser;
           this.logout = logoutSpy;
@@ -48,7 +48,7 @@ describe('Unit: SideContent SideContent', function() {
 
   describe('user is not signed in', function() {
     beforeEach(function(){
-      module('theshelf.side_content', function($controllerProvider) {
+      module('theshelf.components.side_content', function($controllerProvider) {
         $controllerProvider.register('SideContentCtrl', function() {
           this.currentUser = undefined;
         });

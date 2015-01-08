@@ -1,13 +1,13 @@
 'use strict';
 
-var BooksPage = require('./pages/books_page');
+var Books = require('./pages/books');
 
 describe('E2E: List books', function() {
 
   beforeEach(function() {
     login();
 
-    this.page = new BooksPage();
+    this.page = new Books();
     this.page.get();
   });
 

@@ -1,12 +1,12 @@
 'use strict';
 
-describe('Unit: LoginPage LoginPageCtrl', function() {
+describe('Unit: theshelf.pages.login LoginCtrl', function() {
 
   var scope, ctrl, $q;
 
   beforeEach(function() {
     module('theshelf.core');
-    module('theshelf.login_page');
+    module('theshelf.pages.login');
 
     inject(function($rootScope, $controller, _$q_) {
       scope = $rootScope.$new();
@@ -35,7 +35,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
     it('calls Session.create()', function() {
       var SessionMock = { create: resolvePromise() };
       sinon.spy(SessionMock, 'create');
-      ctrl = ctrl('LoginPageCtrl', { Session: SessionMock });
+      ctrl = ctrl('LoginCtrl', { Session: SessionMock });
       ctrl.email = 'email@somewhere.com';
       ctrl.password = 'pass';
 
@@ -48,7 +48,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
       var SessionMock = { create: resolvePromise() };
       var goSpy = sinon.spy();
       var stateMock = { go: goSpy };
-      ctrl = ctrl('LoginPageCtrl', { $state: stateMock, Session: SessionMock });
+      ctrl = ctrl('LoginCtrl', { $state: stateMock, Session: SessionMock });
 
       ctrl.login();
       scope.$digest();
@@ -59,7 +59,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
     describe('dataLoading property', function() {
       it('is set to true when the promise is pending', function() {
         var SessionMock = { create: resolvePromise() };
-        ctrl = ctrl('LoginPageCtrl', { Session: SessionMock });
+        ctrl = ctrl('LoginCtrl', { Session: SessionMock });
 
         ctrl.login();
 
@@ -68,7 +68,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
 
       it('is set to false when the promise is fullfilled', function() {
         var SessionMock = { create: resolvePromise() };
-        ctrl = ctrl('LoginPageCtrl', { Session: SessionMock });
+        ctrl = ctrl('LoginCtrl', { Session: SessionMock });
 
         ctrl.login();
         scope.$digest();
@@ -78,7 +78,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
 
       it('is set to false when the promise is rejected', function() {
         var SessionMock = { create: rejectPromise() };
-        ctrl = ctrl('LoginPageCtrl', { Session: SessionMock });
+        ctrl = ctrl('LoginCtrl', { Session: SessionMock });
 
         ctrl.login();
         scope.$digest();
@@ -92,7 +92,7 @@ describe('Unit: LoginPage LoginPageCtrl', function() {
       it("is equal to the rejected promise's reason", function() {
         var rejectReason = 'some error message';
         var SessionMock = { create: rejectPromise(rejectReason) };
-        ctrl = ctrl('LoginPageCtrl', { Session: SessionMock });
+        ctrl = ctrl('LoginCtrl', { Session: SessionMock });
 
         ctrl.login();
         scope.$digest();

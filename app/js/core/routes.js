@@ -5,16 +5,16 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
     .state('Login', {
       url: '/login',
-      controller: 'LoginPageCtrl',
+      controller: 'LoginCtrl',
       controllerAs: 'ctrl',
-      templateUrl: 'login_page/login_page.html',
+      templateUrl: 'pages/login/login.html',
       title: 'Login'
     })
     .state('Home', {
       url: '/',
-      controller: 'BooksPageCtrl',
+      controller: 'BooksCtrl',
       controllerAs: 'ctrl',
-      templateUrl: 'books_page/books_page.html',
+      templateUrl: 'pages/books/books.html',
       title: 'Home'
     });
 

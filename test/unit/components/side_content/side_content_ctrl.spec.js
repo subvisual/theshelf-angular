@@ -1,11 +1,11 @@
 'use strict';
 
-describe('Unit: SideContent SideContentCtrl', function() {
+describe('Unit: theshelf.components.side_content SideContentCtrl', function() {
   var ctrl, $timeout;
 
   beforeEach(function() {
     module('theshelf.core');
-    module('theshelf.side_content');
+    module('theshelf.components.side_content');
 
     inject(function($controller, _$timeout_) {
       ctrl = $controller;

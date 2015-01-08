@@ -10,4 +10,5 @@ function SearchBar() {
     bindToController: true
   };
 }
+
 export default SearchBar;

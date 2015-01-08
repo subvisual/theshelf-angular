@@ -1,14 +1,14 @@
 'use strict';
 
-describe('Unit: BooksPage BooksPageCtrl', function() {
+describe('Unit: theshelf.pages.books BooksCtrl', function() {
 
   var ctrl;
 
   beforeEach(function() {
-    module('theshelf.books_page');
+    module('theshelf.pages.books');
 
     inject(function($controller) {
-      ctrl = $controller('BooksPageCtrl');
+      ctrl = $controller('BooksCtrl');
     });
   });
 

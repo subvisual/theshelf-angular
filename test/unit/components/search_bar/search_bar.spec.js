@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Unit: SearchBar SearchBar', function() {
+describe('Unit: theshelf.components.search_bar SearchBar', function() {
   var element;
   var outerScope;
 
-  beforeEach(module('theshelf.search_bar'));
+  beforeEach(module('theshelf.components.search_bar'));
   beforeEach(module('karma.templates'));
 
   beforeEach(inject(function($rootScope, $compile) {

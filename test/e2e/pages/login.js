@@ -1,6 +1,6 @@
 'use strict';
 
-function LoginPage() {
+function Login() {
   this.get = function() {
     browser.get('/login');
   };
@@ -17,4 +17,4 @@ function LoginPage() {
   };
 }
 
-module.exports = LoginPage;
+module.exports = Login;

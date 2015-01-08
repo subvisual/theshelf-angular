@@ -1,4 +1,4 @@
-function BooksPageCtrl() {
+function BooksCtrl() {
   let ctrl = this;
 
   ctrl.handleUserInput = handleUserInput;
@@ -9,4 +9,4 @@ function BooksPageCtrl() {
   }
 }
 
-export default BooksPageCtrl;
+export default BooksCtrl;

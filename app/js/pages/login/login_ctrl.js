@@ -1,4 +1,4 @@
-function LoginPageCtrl($state, Session) {
+function LoginCtrl($state, Session) {
   let ctrl = this;
 
   ctrl.login = login;
@@ -20,6 +20,6 @@ function LoginPageCtrl($state, Session) {
   }
 }
 
-LoginPageCtrl.$inject = ['$state', 'Session'];
+LoginCtrl.$inject = ['$state', 'Session'];
 
-export default LoginPageCtrl;
+export default LoginCtrl;

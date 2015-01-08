@@ -6,8 +6,8 @@
  * login()
  */
 function login() {
-  var LoginPage = require('../pages/login_page');
-  var page = new LoginPage();
+  var Login = require('../pages/login');
+  var page = new Login();
   httpBackend.onLoad.when('GET', /users\/2/).respond(200, mockData('user'));
   page.get();
   httpBackend.when('POST', /session/).respond(200, mockData('post_session'));

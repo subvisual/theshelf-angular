@@ -1,10 +1,10 @@
 'use strict';
 
-var LoginPage = require('./pages/login_page');
+var Login = require('./pages/login');
 
 describe('E2E: Login', function() {
   beforeEach(function() {
-    this.page = new LoginPage();
+    this.page = new Login();
   });
 
   it('should route correctly', function() {

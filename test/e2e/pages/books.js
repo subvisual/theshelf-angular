@@ -1,6 +1,6 @@
 'use strict';
 
-function BooksPage() {
+function Books() {
   this.get = function() {
     browser.get('/');
   };
@@ -11,4 +11,4 @@ function BooksPage() {
   this.booksSearchBox = this.booksSearchBar.element(by.model('ctrl.input'));
 }
 
-module.exports = BooksPage;
+module.exports = Books;

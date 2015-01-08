@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Unit: SearchBar SearchBarCtrl', function() {
+describe('Unit: theshelf.components.search_bar SearchBarCtrl', function() {
   var ctrl, ctrlFn;
 
   beforeEach(function() {
-    module('theshelf.search_bar');
+    module('theshelf.components.search_bar');
 
     inject(function($controller) {
       // testing `bindToController: true`

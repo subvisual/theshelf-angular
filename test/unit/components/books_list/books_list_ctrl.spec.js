@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Unit: BooksList BooksListCtrl', function() {
+describe('Unit: theshelf.components.books_list BooksListCtrl', function() {
   var ctrl;
 
   beforeEach(function() {
-    module('theshelf.books_list');
+    module('theshelf.components.books_list');
 
     inject(function($controller) {
       ctrl = $controller('BooksListCtrl');
