@@ -1,0 +1,28 @@
+$Grid-cell-size: 24rem;
+$Grid-gutter-size: 1rem;
+
+.Grid {
+  flex-wrap: wrap;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.Grid-cell {
+  flex: 0 0 100%;
+}
+
+@include breakpoint("desktop") {
+  .Grid-cell {
+    flex: 0 0 $Grid-cell-size;
+  }
+}
+
+.Grid--gutters {
+  margin-left: -$Grid-gutter-size;
+
+  .Grid-cell {
+    padding-left: $Grid-gutter-size;
+  }
+}

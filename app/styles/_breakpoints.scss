@@ -1,0 +1,13 @@
+$breakpoints: (
+  desktop: "(min-width: 768px)"
+);
+
+@mixin breakpoint($point) {
+  $query: map-get($breakpoints, $point);
+  @if ($query) {
+    @media #{$query} { @content }
+  }
+  @else {
+    @warn "The breakpoint '#{$point}' doesn't exist";
+  }
+}

@@ -6,13 +6,20 @@ var sass         = require('gulp-sass');
 var gulpif       = require('gulp-if');
 var handleErrors = require('../util/handleErrors');
 var browserSync  = require('browser-sync');
+var autoprefixer = require('gulp-autoprefixer');
+var importCss    = require('gulp-import-css');
 
 gulp.task('styles', function () {
 
   return gulp.src(config.styles.src)
     .pipe(sass({
-      sourceComments: 'map',
+      sourceComments: global.isProd() ? 'none' : 'map',
+      sourceMap: 'sass',
       outputStyle: global.isProd() ? 'compressed' : 'nested'
+    }))
+    .pipe(importCss())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', '> 1%', 'ie 8']
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(config.styles.dest))

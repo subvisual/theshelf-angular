@@ -1,0 +1,22 @@
+$Site-nav-width: 15.5rem;
+
+.Site {
+  flex: 1 0 auto;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+}
+
+@include breakpoint("desktop") {
+  .Site {
+    flex-direction: row;
+  }
+
+  .Site-content {
+    flex: 1;
+  }
+
+  .Site-nav {
+    flex: 0 0 $Site-nav-width;
+  }
+}
