@@ -2,6 +2,21 @@
   "extends": ".jshintrc",
   "expr": true,
   "globals": {
-    "angular": false
+    "after":       false,
+    "afterEach":   false,
+    "angular":     false,
+    "before":      false,
+    "beforeEach":  false,
+    "browser":     false,
+    "by":          false,
+    "describe":    false,
+    "element":     false,
+    "expect":      false,
+    "httpBackend": false,
+    "inject":      false,
+    "it":          false,
+    "login":       false,
+    "mockData":    false,
+    "sinon":       false
   }
 }

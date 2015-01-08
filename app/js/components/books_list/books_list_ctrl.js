@@ -1,9 +1,9 @@
-class BooksListCtrl {
-  constructor() {
-    this.books = this.loadBooks();
-  }
+function BooksListCtrl() {
+  let ctrl = this;
 
-  loadBooks() {
+  ctrl.books = loadBooks();
+
+  function loadBooks() {
     return [{ title: 'SMACSS' }, { title: 'POODR' }];
   }
 }

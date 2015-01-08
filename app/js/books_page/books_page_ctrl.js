@@ -1,9 +1,12 @@
-export default class BooksPageCtrl {
-  constructor() {
-    this.searchText = '';
-  }
+function BooksPageCtrl() {
+  let ctrl = this;
 
-  handleUserInput(input) {
-    this.searchText = input;
+  ctrl.handleUserInput = handleUserInput;
+  ctrl.searchText = '';
+
+  function handleUserInput(input) {
+    ctrl.searchText = input;
   }
 }
+
+export default BooksPageCtrl;

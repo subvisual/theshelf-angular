@@ -1,9 +1,10 @@
-class SearchBarCtrl {
-  constructor() {
-  }
+function SearchBarCtrl() {
+  let ctrl = this;
 
-  handleChange() {
-    this.onUserInput({searchText:this.input});
+  ctrl.handleChange = handleChange;
+
+  function handleChange() {
+    ctrl.onUserInput({searchText:ctrl.input});
   }
 }
 

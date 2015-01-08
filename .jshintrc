@@ -55,23 +55,5 @@
 
   "browser": true,
   "mocha":   true,
-  "node":    true,
-
-  "globals": {
-    "sinon":      false,
-    "inject":     false,
-    "browser":    false,
-    "mockData":   false,
-    "httpBackend":false,
-    "by":         false,
-    "element":    false,
-    "login":      false,
-    "describe":   false,
-    "it":         false,
-    "before":     false,
-    "beforeEach": false,
-    "after":      false,
-    "afterEach":  false,
-    "expect":     false
-  }
+  "node":    true
 }
