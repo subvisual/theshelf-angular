@@ -10,21 +10,27 @@ function Session($q, DS, SessionStorage, CurrentUser) {
     return { uid, token };
   };
 
+  let createSessionFulfilledHandler = (resolve) => {
+    return (response) => {
+      let sessionData = handleSessionResponse(response);
+      SessionStorage.create(sessionData);
+      CurrentUser.create(sessionData);
+      resolve();
+    };
+  };
+
+  let createSessionErrorHandler = (reject) => {
+    return () => reject('Invalid credentials');
+  };
+
   let create = (email, password) => {
-    let deferred = $q.defer();
-
-    SessionDS.create({ user: { email, password } })
-      .then((response) => {
-        let sessionData = handleSessionResponse(response);
-        SessionStorage.create(sessionData);
-        CurrentUser.create(sessionData);
-
-        deferred.resolve();
-      }, () => {
-        deferred.reject('Invalid credentials');
-      });
-
-    return deferred.promise;
+    return $q((resolve, reject) => {
+      SessionDS.create({ user: { email, password } })
+        .then(
+          createSessionFulfilledHandler(resolve),
+          createSessionErrorHandler(reject)
+        );
+    });
   };
 
   let destroy = () => {

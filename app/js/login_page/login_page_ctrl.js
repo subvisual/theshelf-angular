@@ -1,17 +1,25 @@
 'use strict';
 
 function LoginPageCtrl($state, Session) {
-  this.login = function() {
-    this.dataLoading = true;
-    Session.create(this.email, this.password)
-      .then(() => {
-        $state.go('Home');
-        this.dataLoading = false;
-      }, (error) => {
-        this.error = error;
-        this.dataLoading = false;
-      });
-  };
+  let ctrl = this;
+
+  ctrl.login = login;
+
+  function login() {
+    ctrl.dataLoading = true;
+    Session.create(ctrl.email, ctrl.password)
+      .then(fulfilledHandler, rejectedHandler);
+  }
+
+  function fulfilledHandler() {
+    $state.go('Home');
+    ctrl.dataLoading = false;
+  }
+
+  function rejectedHandler(error) {
+    ctrl.error = error;
+    ctrl.dataLoading = false;
+  }
 }
 
 LoginPageCtrl.$inject = ['$state', 'Session'];
