@@ -7,4 +7,4 @@ class SearchBarCtrl {
   }
 }
 
-module.exports = SearchBarCtrl;
+export default SearchBarCtrl;

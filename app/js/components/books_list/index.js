@@ -1,5 +1,8 @@
-let angular = require('angular');
+import angular from 'angular';
+
+import booksList from './books_list';
+import booksListCtrl from './books_list_ctrl';
 
 module.exports = angular.module('theshelf.books_list', [])
-  .directive('booksList', require('./books_list'))
-  .controller('BooksListCtrl', require('./books_list_ctrl'));
+  .directive('booksList', booksList)
+  .controller('BooksListCtrl', booksListCtrl);

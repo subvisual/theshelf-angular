@@ -4,4 +4,4 @@ function DSConfig(DSProvider, AppSettings) {
 
 DSConfig.$inject = ['DSProvider', 'AppSettings'];
 
-module.exports = DSConfig;
+export default DSConfig;

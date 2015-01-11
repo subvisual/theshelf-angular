@@ -11,4 +11,4 @@ function SessionStorage(store) {
 
 SessionStorage.$inject = ['store'];
 
-module.exports = SessionStorage;
+export default SessionStorage;

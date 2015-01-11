@@ -8,4 +8,4 @@ class BooksListCtrl {
   }
 }
 
-module.exports = BooksListCtrl;
+export default BooksListCtrl;

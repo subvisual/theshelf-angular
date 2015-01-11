@@ -11,4 +11,4 @@ function BooksList() {
   };
 }
 
-module.exports = BooksList;
+export default BooksList;

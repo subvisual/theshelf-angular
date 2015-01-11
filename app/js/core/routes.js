@@ -24,4 +24,4 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
 Routes.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
-module.exports = Routes;
+export default Routes;

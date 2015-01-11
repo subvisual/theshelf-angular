@@ -1,5 +1,8 @@
-let angular = require('angular');
+import angular from 'angular';
+
+import searchBar from './search_bar';
+import searchBarCtrl from './search_bar_ctrl';
 
 module.exports = angular.module('theshelf.search_bar', [])
-  .directive('searchBar', require('./search_bar'))
-  .controller('SearchBarCtrl', require('./search_bar_ctrl'));
+  .directive('searchBar', searchBar)
+  .controller('SearchBarCtrl', searchBarCtrl);

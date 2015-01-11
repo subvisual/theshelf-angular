@@ -1,4 +1,6 @@
-let angular = require('angular');
+import angular from 'angular';
 
-module.exports = angular.module('theshelf.books_page', [])
-  .controller('BooksPageCtrl', require('./books_page_ctrl'));
+import booksPageCtrl from './books_page_ctrl';
+
+export default angular.module('theshelf.books_page', [])
+  .controller('BooksPageCtrl', booksPageCtrl);

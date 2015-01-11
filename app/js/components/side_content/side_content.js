@@ -9,4 +9,4 @@ function SideContent() {
   };
 }
 
-module.exports = SideContent;
+export default SideContent;

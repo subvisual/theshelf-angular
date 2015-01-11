@@ -1,11 +1,17 @@
+import angular from 'angular';
+import 'angular-storage';
 
-let angular = require('angular');
-require('angular-storage');
+import session from './session';
+import currentUser from './current_user';
+import sessionStorage from './session_storage';
+import headers from './headers';
+import httpConfig from './http_config';
+import onRun from './on_run';
 
-module.exports = angular.module('theshelf.auth', ['angular-storage'])
-  .factory('Session', require('./session'))
-  .factory('CurrentUser', require('./current_user'))
-  .factory('SessionStorage', require('./session_storage'))
-  .factory('Headers', require('./headers'))
-  .run(require('./http_config'))
-  .run(require('./on_run'));
+export default angular.module('theshelf.auth', ['angular-storage'])
+  .factory('Session', session)
+  .factory('CurrentUser', currentUser)
+  .factory('SessionStorage', sessionStorage)
+  .factory('Headers', headers)
+  .run(httpConfig)
+  .run(onRun);

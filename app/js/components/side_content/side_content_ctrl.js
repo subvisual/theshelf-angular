@@ -13,4 +13,4 @@ function SideContentCtrl($state, Session) {
 
 SideContentCtrl.$inject = ['$state', 'Session'];
 
-module.exports = SideContentCtrl;
+export default SideContentCtrl;

@@ -11,4 +11,4 @@ function Headers($http) {
 
 Headers.$inject = ['$http'];
 
-module.exports = Headers;
+export default Headers;

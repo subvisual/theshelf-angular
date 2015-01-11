@@ -13,4 +13,4 @@ function User(DS) {
 
 User.$inject = ['DS'];
 
-module.exports = User;
+export default User;

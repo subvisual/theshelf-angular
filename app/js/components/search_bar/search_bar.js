@@ -10,5 +10,4 @@ function SearchBar() {
     bindToController: true
   };
 }
-
-module.exports = SearchBar;
+export default SearchBar;

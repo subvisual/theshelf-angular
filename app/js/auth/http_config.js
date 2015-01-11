@@ -4,4 +4,4 @@ function HttpConfig($http, AppSettings) {
 
 HttpConfig.$inject = ['$http', 'AppSettings'];
 
-module.exports = HttpConfig;
+export default HttpConfig;

@@ -22,4 +22,4 @@ function LoginPageCtrl($state, Session) {
 
 LoginPageCtrl.$inject = ['$state', 'Session'];
 
-module.exports = LoginPageCtrl;
+export default LoginPageCtrl;

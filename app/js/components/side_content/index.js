@@ -1,5 +1,8 @@
-let angular = require('angular');
+import angular from 'angular';
 
-module.exports = angular.module('theshelf.side_content', [])
-  .directive('sideContent', require('./side_content'))
-  .controller('SideContentCtrl', require('./side_content_ctrl'));
+import sideContent from './side_content';
+import sideContentCtrl from './side_content_ctrl';
+
+export default angular.module('theshelf.side_content', [])
+  .directive('sideContent', sideContent)
+  .controller('SideContentCtrl', sideContentCtrl);

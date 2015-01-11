@@ -24,4 +24,4 @@ function CurrentUser($rootScope, User, Headers) {
 
 CurrentUser.$inject = ['$rootScope', 'User', 'Headers'];
 
-module.exports = CurrentUser;
+export default CurrentUser;

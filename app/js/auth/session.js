@@ -58,4 +58,4 @@ function Session($q, DS, SessionStorage, CurrentUser) {
 
 Session.$inject = ['$q', 'DS', 'SessionStorage', 'CurrentUser'];
 
-module.exports = Session;
+export default Session;

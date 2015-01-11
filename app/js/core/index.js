@@ -1,8 +1,14 @@
-let angular = require('angular');
-require('angular-ui-router');
-require('angular-data');
-require('angular-messages');
-require('./templates');
+import angular from 'angular';
+import 'angular-ui-router';
+import 'angular-data';
+import 'angular-messages';
+import './templates';
+
+import appSettings from './app_settings';
+import user from './models/user';
+import routes from './routes';
+import dsConfig from './ds_config';
+import onRun from './on_run';
 
 module.exports = angular.module('theshelf.core',
                                 [
@@ -11,8 +17,8 @@ module.exports = angular.module('theshelf.core',
                                   'angular-data.DS',
                                   'ngMessages'
                                 ])
-  .constant('AppSettings', require('./constants'))
-  .factory('User', require('./models/user'))
-  .config(require('./routes'))
-  .config(require('./ds_config'))
-  .run(require('./on_run'));
+  .constant('AppSettings', appSettings)
+  .factory('User', user)
+  .config(routes)
+  .config(dsConfig)
+  .run(onRun);
