@@ -1,5 +1,3 @@
-'use strict';
-
 let angular = require('angular');
 
 module.exports = angular.module('theshelf.books_list', [])

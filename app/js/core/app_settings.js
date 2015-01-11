@@ -1,5 +1,3 @@
-'use strict';
-
 let apiVersion = '1';
 
 let AppSettings = {

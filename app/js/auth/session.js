@@ -1,5 +1,3 @@
-'use strict';
-
 function Session($q, DS, SessionStorage, CurrentUser) {
   let SessionDS = DS.defineResource('session');
 

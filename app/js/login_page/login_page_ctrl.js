@@ -1,5 +1,3 @@
-'use strict';
-
 function LoginPageCtrl($state, Session) {
   let ctrl = this;
 

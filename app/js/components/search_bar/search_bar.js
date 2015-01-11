@@ -1,5 +1,3 @@
-'use strict';
-
 function SearchBar() {
   return {
     restrict: 'E',

@@ -1,5 +1,3 @@
-'use strict';
-
 function User(DS) {
   return DS.defineResource({
     name: 'user',

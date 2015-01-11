@@ -1,5 +1,3 @@
-'use strict';
-
 function SideContentCtrl($state, Session) {
   let init = () => {
     Session.onCurrentUserChanged(() => this.currentUser = Session.currentUser);

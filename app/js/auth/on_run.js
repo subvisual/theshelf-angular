@@ -1,5 +1,3 @@
-'use strict';
-
 function OnRun($rootScope, $location, Session) {
   Session.restore();
 

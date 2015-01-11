@@ -1,5 +1,3 @@
-'use strict';
-
 function BooksList() {
   return {
     restrict: 'E',

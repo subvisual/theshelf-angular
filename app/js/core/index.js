@@ -1,5 +1,3 @@
-'use strict';
-
 let angular = require('angular');
 require('angular-ui-router');
 require('angular-data');

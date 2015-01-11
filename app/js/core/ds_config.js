@@ -1,5 +1,3 @@
-'use strict';
-
 function DSConfig(DSProvider, AppSettings) {
   DSProvider.defaults.baseUrl = AppSettings.apiUrl;
 }

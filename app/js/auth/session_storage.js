@@ -1,5 +1,3 @@
-'use strict';
-
 function SessionStorage(store) {
   return {
     create(sessionData) {

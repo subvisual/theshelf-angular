@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Unit: Core Constants', function() {
+describe('Unit: Core AppSettings', function() {
 
-  var constants;
+  var appSettings;
 
   beforeEach(function() {
     module('theshelf.core');
 
     inject(function(AppSettings) {
-      constants = AppSettings;
+      appSettings = AppSettings;
     });
   });
 
   it('should exist', function() {
-    expect(constants).to.exist;
+    expect(appSettings).to.exist;
   });
 
   it('should have an application name', function() {
-    expect(constants.appTitle).to.equal('The Shelf');
+    expect(appSettings.appTitle).to.equal('The Shelf');
   });
 
 });

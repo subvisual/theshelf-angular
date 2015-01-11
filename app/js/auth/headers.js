@@ -1,5 +1,3 @@
-'use strict';
-
 function Headers($http) {
   return {
     setAuthorization(token) {

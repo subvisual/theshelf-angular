@@ -1,5 +1,3 @@
-'use strict';
-
 var angular = require('angular');
 require('./main');
 require('angular-mocks');

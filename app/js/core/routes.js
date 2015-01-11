@@ -1,5 +1,3 @@
-'use strict';
-
 function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $locationProvider.html5Mode(true);

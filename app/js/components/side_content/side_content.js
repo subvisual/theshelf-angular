@@ -1,5 +1,3 @@
-'use strict';
-
 function SideContent() {
   return {
     restrict: 'E',

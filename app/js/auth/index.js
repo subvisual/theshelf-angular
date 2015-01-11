@@ -1,4 +1,3 @@
-'use strict';
 
 let angular = require('angular');
 require('angular-storage');

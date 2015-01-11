@@ -1,5 +1,3 @@
-'use strict';
-
 function CurrentUser($rootScope, User, Headers) {
   let currentUser;
 

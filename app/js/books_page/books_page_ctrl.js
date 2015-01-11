@@ -1,5 +1,3 @@
-'use strict';
-
 class BooksPageCtrl {
   constructor() {
     this.searchText = '';

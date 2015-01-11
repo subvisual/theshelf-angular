@@ -1,5 +1,3 @@
-'use strict';
-
 class BooksListCtrl {
   constructor() {
     this.books = this.loadBooks();
