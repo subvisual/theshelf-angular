@@ -15,11 +15,11 @@ gulp.task('server', function() {
 
   // Serve index.html for all routes to leave routing up to Angular
   server.all('/*', function(req, res) {
-      res.sendFile('index.html', { root: 'build' });
+    res.sendFile('index.html', { root: 'build' });
   });
 
   // Start webserver if not already running
-  if ( !global.serverRunning ) {
+  if (!global.serverRunning) {
     global.server = http.createServer(server).listen(config.serverport, function () {
       global.serverRunning = true;
     });

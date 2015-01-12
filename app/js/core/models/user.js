@@ -1,5 +1,3 @@
-'use strict';
-
 function User(DS) {
   return DS.defineResource({
     name: 'user',
@@ -15,4 +13,4 @@ function User(DS) {
 
 User.$inject = ['DS'];
 
-module.exports = User;
+export default User;

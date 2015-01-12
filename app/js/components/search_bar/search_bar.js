@@ -1,5 +1,3 @@
-'use strict';
-
 function SearchBar() {
   return {
     restrict: 'E',
@@ -12,5 +10,4 @@ function SearchBar() {
     bindToController: true
   };
 }
-
-module.exports = SearchBar;
+export default SearchBar;

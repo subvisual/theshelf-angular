@@ -1,5 +1,3 @@
-'use strict';
-
 function SideContent() {
   return {
     restrict: 'E',
@@ -11,4 +9,4 @@ function SideContent() {
   };
 }
 
-module.exports = SideContent;
+export default SideContent;

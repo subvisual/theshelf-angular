@@ -1,5 +1,3 @@
-'use strict';
-
 function OnRun($rootScope, $location, Session) {
   Session.restore();
 
@@ -16,4 +14,4 @@ function OnRun($rootScope, $location, Session) {
 
 OnRun.$inject = ['$rootScope', '$location', 'Session'];
 
-module.exports = OnRun;
+export default OnRun;

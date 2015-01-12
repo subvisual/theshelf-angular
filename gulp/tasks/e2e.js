@@ -14,7 +14,7 @@ gulp.task('e2e', ['webdriver-update', 'webdriver', 'prepare_e2e', 'server'], fun
 
   return gulp.src('test/e2e/**/*.js')
     .pipe(protractor({
-        configFile: config.test.protractor
+      configFile: config.test.protractor
     }))
     .on('end', function() {
       global.server.close(

@@ -1,5 +1,3 @@
-'use strict';
-
 function CurrentUser($rootScope, User, Headers) {
   let currentUser;
 
@@ -26,4 +24,4 @@ function CurrentUser($rootScope, User, Headers) {
 
 CurrentUser.$inject = ['$rootScope', 'User', 'Headers'];
 
-module.exports = CurrentUser;
+export default CurrentUser;

@@ -1,5 +1,3 @@
-'use strict';
-
 function OnRun($rootScope, AppSettings) {
   // change page title based on state
   $rootScope.$on('$stateChangeSuccess', function(event, toState) {
@@ -16,4 +14,4 @@ function OnRun($rootScope, AppSettings) {
 
 OnRun.$inject = ['$rootScope', 'AppSettings'];
 
-module.exports = OnRun;
+export default OnRun;

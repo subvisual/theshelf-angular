@@ -1,6 +1,4 @@
-'use strict';
-
-class BooksPageCtrl {
+export default class BooksPageCtrl {
   constructor() {
     this.searchText = '';
   }
@@ -9,5 +7,3 @@ class BooksPageCtrl {
     this.searchText = input;
   }
 }
-
-module.exports = BooksPageCtrl;

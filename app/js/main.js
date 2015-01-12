@@ -1,19 +1,17 @@
-'use strict';
-
-let angular = require('angular');
+import angular from 'angular';
 
 // feature modules
-require('./core');
-require('./auth');
+import './core';
+import './auth';
 
 // page modules
-require('./login_page');
-require('./books_page');
+import './login_page';
+import './books_page';
 
 // component modules
-require('./components/side_content');
-require('./components/books_list');
-require('./components/search_bar');
+import './components/side_content';
+import './components/books_list';
+import './components/search_bar';
 
 angular.module('theshelf',
   [

@@ -1,5 +1,3 @@
-'use strict';
-
 function SideContentCtrl($state, Session) {
   let init = () => {
     Session.onCurrentUserChanged(() => this.currentUser = Session.currentUser);
@@ -15,4 +13,4 @@ function SideContentCtrl($state, Session) {
 
 SideContentCtrl.$inject = ['$state', 'Session'];
 
-module.exports = SideContentCtrl;
+export default SideContentCtrl;

@@ -1,5 +1,3 @@
-'use strict';
-
 class SearchBarCtrl {
   constructor() {
   }
@@ -9,4 +7,4 @@ class SearchBarCtrl {
   }
 }
 
-module.exports = SearchBarCtrl;
+export default SearchBarCtrl;

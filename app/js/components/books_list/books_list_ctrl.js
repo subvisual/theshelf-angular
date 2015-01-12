@@ -1,5 +1,3 @@
-'use strict';
-
 class BooksListCtrl {
   constructor() {
     this.books = this.loadBooks();
@@ -10,4 +8,4 @@ class BooksListCtrl {
   }
 }
 
-module.exports = BooksListCtrl;
+export default BooksListCtrl;

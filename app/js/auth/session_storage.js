@@ -1,5 +1,3 @@
-'use strict';
-
 function SessionStorage(store) {
   return {
     create(sessionData) {
@@ -13,4 +11,4 @@ function SessionStorage(store) {
 
 SessionStorage.$inject = ['store'];
 
-module.exports = SessionStorage;
+export default SessionStorage;

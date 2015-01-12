@@ -1,5 +1,3 @@
-'use strict';
-
 function Headers($http) {
   return {
     setAuthorization(token) {
@@ -13,4 +11,4 @@ function Headers($http) {
 
 Headers.$inject = ['$http'];
 
-module.exports = Headers;
+export default Headers;
