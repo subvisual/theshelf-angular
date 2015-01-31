@@ -43,14 +43,10 @@ function Session($q, DS, SessionStorage, CurrentUser) {
     }
   };
 
-  let onCurrentUserChanged = (cb) =>
-    CurrentUser.onChange(cb);
-
   return {
     create,
     destroy,
     restore,
-    onCurrentUserChanged,
     get currentUser() { return CurrentUser.retrieve(); },
     get isAuthenticated() { return !!SessionStorage.retrieve(); }
   };

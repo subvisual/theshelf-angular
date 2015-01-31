@@ -1,4 +1,4 @@
-function CurrentUser($rootScope, User, Headers) {
+function CurrentUser(User, Headers) {
   let currentUser;
 
   return {
@@ -8,20 +8,15 @@ function CurrentUser($rootScope, User, Headers) {
         .then((user) => {
           currentUser = user;
           Headers.setAuthorization(data.token);
-          $rootScope.$broadcast('auth:current-user-changed', currentUser);
         });
     },
     destroy() {
       currentUser = undefined;
       Headers.resetAuthorization();
-      $rootScope.$broadcast('auth:current-user-changed', currentUser);
-    },
-    onChange(cb) {
-      $rootScope.$on('auth:current-user-changed', cb);
     }
   };
 }
 
-CurrentUser.$inject = ['$rootScope', 'User', 'Headers'];
+CurrentUser.$inject = ['User', 'Headers'];
 
 export default CurrentUser;

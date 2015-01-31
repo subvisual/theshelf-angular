@@ -19,19 +19,16 @@ describe('Unit: theshelf.components.side_content SideContent', function() {
     var logoutSpy, currentUser;
 
     beforeEach(function(){
-      currentUser = {
-        name: function(){ return 'user name'; }
-      };
+      currentUser = { name: function(){ return 'user name'; } };
       logoutSpy = sinon.spy();
 
       module('theshelf.components.side_content', function($controllerProvider) {
         $controllerProvider.register('SideContentCtrl', function() {
-          this.currentUser = currentUser;
+          this.currentUser = function() { return currentUser; };
           this.logout = logoutSpy;
         });
       });
       module('karma.templates');
-
 
       compileDirective();
     });
@@ -50,7 +47,7 @@ describe('Unit: theshelf.components.side_content SideContent', function() {
     beforeEach(function(){
       module('theshelf.components.side_content', function($controllerProvider) {
         $controllerProvider.register('SideContentCtrl', function() {
-          this.currentUser = undefined;
+          this.currentUser = function() { return undefined; };
         });
       });
       module('karma.templates');

@@ -20,17 +20,6 @@ describe('Unit: Auth Session', function() {
     });
   });
 
-  describe('#onCurrentUserChanged', function() {
-    it('listens for currentUser changes', function() {
-      var onChangeSpy = sinon.stub(CurrentUser, 'onChange');
-      var myCallback = function MyCallback(){};
-
-      Session.onCurrentUserChanged(myCallback);
-
-      expect(onChangeSpy).to.have.been.calledWith(myCallback);
-    });
-  });
-
   describe('#restore', function() {
     describe('user is authenticated', function() {
       var sessionData = { id: 1, token: 't0ken' };

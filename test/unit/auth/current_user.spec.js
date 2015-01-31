@@ -2,7 +2,7 @@
 
 describe('Unit: Auth CurrentUser', function() {
 
-  var CurrentUser, DS, Headers, $rootScope;
+  var CurrentUser, DS, Headers;
 
   beforeEach(function() {
     module('theshelf.core');
@@ -11,8 +11,7 @@ describe('Unit: Auth CurrentUser', function() {
   });
 
   beforeEach(function(done) {
-    inject(function(_$rootScope_, _CurrentUser_, _Headers_, _DS_) {
-      $rootScope = _$rootScope_;
+    inject(function(_CurrentUser_, _Headers_, _DS_) {
       CurrentUser = _CurrentUser_;
       Headers = _Headers_;
       DS = _DS_;
@@ -52,16 +51,6 @@ describe('Unit: Auth CurrentUser', function() {
 
       expect(setAuthorizationStub).to.have.been.calledWith(token);
     });
-
-    it('broadcasts the currentUser has changed', function() {
-      var broadcastSpy = sinon.spy($rootScope, '$broadcast');
-      DS.expectFind('user', uid).respond(userFromStore);
-
-      CurrentUser.create(userData);
-      DS.flush();
-
-      expect(broadcastSpy).to.have.been.calledWith('auth:current-user-changed', userFromStore);
-    });
   });
 
   describe('#destroy', function() {
@@ -77,13 +66,6 @@ describe('Unit: Auth CurrentUser', function() {
       CurrentUser.destroy();
 
       expect(resetAuthorizationStub).to.have.been.called;
-    });
-
-    it('broadcasts the currentUser has changed', function() {
-      var broadcastSpy = sinon.spy($rootScope, '$broadcast');
-      CurrentUser.destroy();
-
-      expect(broadcastSpy).to.have.been.calledWith('auth:current-user-changed', undefined);
     });
   });
 
@@ -101,17 +83,6 @@ describe('Unit: Auth CurrentUser', function() {
       DS.flush();
 
       expect(CurrentUser.retrieve()).to.equal(user);
-    });
-  });
-
-  describe('#onChange', function() {
-    it('listens for currentUser changes', function() {
-      var onSpy = sinon.spy($rootScope, '$on');
-      var myCallback = function MyCallback(){};
-
-      CurrentUser.onChange(myCallback);
-
-      expect(onSpy).to.have.been.calledWith('auth:current-user-changed', myCallback);
     });
   });
 });
