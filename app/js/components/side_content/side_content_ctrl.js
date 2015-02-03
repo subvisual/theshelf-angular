@@ -1,3 +1,4 @@
+/*@ngInject*/
 function SideContentCtrl($state, Session) {
   let ctrl = this;
 
@@ -9,7 +10,5 @@ function SideContentCtrl($state, Session) {
     $state.go('Login');
   }
 }
-
-SideContentCtrl.$inject = ['$state', 'Session'];
 
 export default SideContentCtrl;

@@ -1,3 +1,4 @@
+/*@ngInject*/
 function Headers($http) {
   return {
     setAuthorization(token) {
@@ -8,7 +9,5 @@ function Headers($http) {
     }
   };
 }
-
-Headers.$inject = ['$http'];
 
 export default Headers;

@@ -1,3 +1,4 @@
+/*@ngInject*/
 function LoginCtrl($state, Session) {
   let ctrl = this;
 
@@ -19,7 +20,5 @@ function LoginCtrl($state, Session) {
     ctrl.dataLoading = false;
   }
 }
-
-LoginCtrl.$inject = ['$state', 'Session'];
 
 export default LoginCtrl;

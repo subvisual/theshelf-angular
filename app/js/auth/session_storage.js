@@ -1,3 +1,4 @@
+/*@ngInject*/
 function SessionStorage(store) {
   return {
     create(sessionData) {
@@ -8,7 +9,5 @@ function SessionStorage(store) {
     retrieve() { return store.get('session'); }
   };
 }
-
-SessionStorage.$inject = ['store'];
 
 export default SessionStorage;

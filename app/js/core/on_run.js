@@ -1,3 +1,4 @@
+/*@ngInject*/
 function OnRun($rootScope, AppSettings) {
   // change page title based on state
   $rootScope.$on('$stateChangeSuccess', function(event, toState) {
@@ -11,7 +12,5 @@ function OnRun($rootScope, AppSettings) {
     $rootScope.pageTitle += AppSettings.appTitle;
   });
 }
-
-OnRun.$inject = ['$rootScope', 'AppSettings'];
 
 export default OnRun;

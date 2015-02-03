@@ -1,3 +1,4 @@
+/*@ngInject*/
 function CurrentUser(User, Headers) {
   let currentUser;
 
@@ -16,7 +17,5 @@ function CurrentUser(User, Headers) {
     }
   };
 }
-
-CurrentUser.$inject = ['User', 'Headers'];
 
 export default CurrentUser;

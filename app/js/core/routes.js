@@ -1,3 +1,4 @@
+/*@ngInject*/
 function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
 
   $locationProvider.html5Mode(true);
@@ -21,7 +22,5 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
 }
-
-Routes.$inject = ['$stateProvider', '$locationProvider', '$urlRouterProvider'];
 
 export default Routes;

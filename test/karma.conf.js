@@ -1,6 +1,7 @@
 'use strict';
 
 var istanbul = require('browserify-istanbul');
+var to5ify   = require('6to5ify');
 
 module.exports = function(config) {
 
@@ -11,7 +12,6 @@ module.exports = function(config) {
     frameworks: ['mocha', 'sinon-chai', 'browserify'],
 
     files: [
-      'node_modules/traceur/bin/traceur-runtime.js',
       'app/js/main.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-data-mocks/dist/angular-data-mocks.js',
@@ -52,7 +52,10 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
-      transform: ['es6ify', istanbul({ ignore: ['**/bower_components/**'] })]
+      transform: [
+        to5ify.configure({ ignore: /bower_components/ }),
+        istanbul({ ignore: ['**/bower_components/**'] })
+      ]
     }
 
   };

@@ -4,16 +4,17 @@ var argv         = require('yargs').argv;
 var browserSync  = require('browser-sync');
 var browserify   = require('browserify');
 var config       = require('../config');
-var es6ify       = require('es6ify');
+var to5ify       = require('6to5ify');
 var gulp         = require('gulp');
 var gutil        = require('gulp-util');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var uglifyify    = require('uglifyify');
 var watchify     = require('watchify');
+var ngAnnotate   = require('browserify-ngannotate');
 
 function buildScript(entryFile) {
-  var bundler = browserify(es6ify.runtime, {
+  var bundler = browserify(entryFile, {
     cache: {},
     packagecache: {},
     fullpaths: true,
@@ -29,8 +30,8 @@ function buildScript(entryFile) {
   }
 
   bundler
-    .add(entryFile)
-    .transform(es6ify);
+    .transform(ngAnnotate)
+    .transform(to5ify.configure({ ignore: /bower_components/ }));
 
   if (global.isProd()) { bundler.transform(uglifyify); }
 

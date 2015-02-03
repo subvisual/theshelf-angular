@@ -1,3 +1,4 @@
+/*@ngInject*/
 function User(DS) {
   return DS.defineResource({
     name: 'user',
@@ -10,7 +11,5 @@ function User(DS) {
     }
   });
 }
-
-User.$inject = ['DS'];
 
 export default User;

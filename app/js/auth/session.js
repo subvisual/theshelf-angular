@@ -1,3 +1,4 @@
+/*@ngInject*/
 function Session($q, DS, SessionStorage, CurrentUser) {
   let SessionDS = DS.defineResource('session');
 
@@ -51,7 +52,5 @@ function Session($q, DS, SessionStorage, CurrentUser) {
     get isAuthenticated() { return !!SessionStorage.retrieve(); }
   };
 }
-
-Session.$inject = ['$q', 'DS', 'SessionStorage', 'CurrentUser'];
 
 export default Session;
