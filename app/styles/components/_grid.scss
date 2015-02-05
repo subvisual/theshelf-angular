@@ -1,3 +1,29 @@
+// Structure
+//
+// Styleguide 1.0
+
+// Grid
+//
+// The grid is built using Flexbox.
+// Within each <.Grid>, there should be many <.Grid-cell>s.
+//
+// default - Default grid
+// .Grid--gutters - Grid with gutters
+//
+// markup:
+// <ul class="Grid {$modifiers}">
+//   <li class="Grid-cell styleguide-grid-unit">Cell</li>
+//   <li class="Grid-cell styleguide-grid-unit">Cell</li>
+//   <li class="Grid-cell styleguide-grid-unit">Cell</li>
+//   <li class="Grid-cell styleguide-grid-unit">Cell</li>
+// </ul>
+//
+// sg-wrapper:
+// <div class="styleguide-grid-unit">
+//   <sg-wrapper-content/>
+// </div>
+//
+// Styleguide 1.1
 $Grid-cell-size: 24rem;
 $Grid-gutter-size: 1rem;
 
@@ -20,9 +46,12 @@ $Grid-gutter-size: 1rem;
 }
 
 .Grid--gutters {
+  margin-top: -$Grid-gutter-size;
+  margin-bottom: $Grid-gutter-size;
   margin-left: -$Grid-gutter-size;
 
   .Grid-cell {
-    padding-left: $Grid-gutter-size;
+    margin-top: $Grid-gutter-size;
+    margin-left: $Grid-gutter-size;
   }
 }

@@ -9,6 +9,10 @@ module.exports = {
     'dest': 'build/css'
   },
 
+  'styleguide': {
+    'dest': 'styleguide'
+  },
+
   'scripts': {
     'src' : 'app/js/**/*.js',
     'dest': 'build/js'

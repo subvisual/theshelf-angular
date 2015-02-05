@@ -1,11 +1,26 @@
+// Helper mixins
+//
+// Styleguide 2.0
+
 $breakpoints: (
   desktop: "(min-width: 768px)"
 );
 
+// breakpoint()
+//
+// Wraps the block of styles passed to the mixin in a @media query, whose
+// breakpoint is defined by $point.
+//
+// $point - The name which identifies a breakpoint expression.
+//
+// Styleguide 2.1
 @mixin breakpoint($point) {
   $query: map-get($breakpoints, $point);
   @if ($query) {
-    @media #{$query} { @content }
+    // TODO change this to `#{$query}` when Gonzales PE doesn't break
+    @media (min-width: 768px) {
+      @content;
+    }
   }
   @else {
     @warn "The breakpoint '#{$point}' doesn't exist";

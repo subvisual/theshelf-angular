@@ -1,3 +1,23 @@
+// Main layout
+//
+// Contains a side and a main content areas.
+// Mobile: Side Content is above Main Content, both full width.
+// Desktop: Side Content is on the left of the Main Content.
+// Within <.Site>, only <.Site-content> is required. <.Site-nav> can be placed
+// before or after <.Site-content>
+//
+// markup:
+// <div class="Site">
+//   <div class="Site-nav styleguide-grid-unit">Side content</div>
+//   <div class="Site-content styleguide-grid-unit">Main content</div>
+// </ul>
+//
+// sg-wrapper:
+// <div class="styleguide-grid-unit">
+//   <sg-wrapper-content/>
+// </div>
+//
+// Styleguide 1.2
 $Site-nav-width: 15.5rem;
 
 .Site {
